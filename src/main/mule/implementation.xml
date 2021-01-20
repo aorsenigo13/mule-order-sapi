@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="getAllOrdine" doc:id="5fc6c81a-f038-4435-8285-ec563ff9a8a1" >
+		<ee:transform doc:name="Transform Message" doc:id="9963fd2b-6a41-4a41-a287-39f7be786d1f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[
+{
+  "codOrdine": "ORD-123",
+  "codCliente": "445A6",
+  "nomeCliente": "Guido Bagatta",
+  "dataOrdine": "2021-01-20T13:46:48.276Z",
+  "prodottiOrdinati": [
+    {
+      "codProdotto": "12S33T",
+      "nomeProdotto": "ESEMPIO DI PRODOTTO",
+      "qta": 22,
+      "prezzo": 19.99
+    },
+    {
+      "codProdotto": "12AAAAS33T",
+      "nomeProdotto": "PRODOTTO",
+      "qta": 22000,
+      "prezzo": 1.99
+    }
+  ],
+  "ID": 1
+},
+{
+  "codOrdine": "ORD-133",
+  "codCliente": "44A6",
+  "nomeCliente": "Guido Batta",
+  "dataOrdine": "2021-01-20T13:46:48.276Z",
+  "prodottiOrdinati": [
+    {
+      "codProdotto": "12S33T",
+      "nomeProdotto": "ESEMPIO DI PRODOTTO",
+      "qta": 22,
+      "prezzo": 19.99
+    },
+    {
+      "codProdotto": "12S233T",
+      "nomeProdotto": "ESEMPIO DI DOTTO",
+      "qta": 2,
+      "prezzo": 19.99
+    }
+  ],
+  "ID": 2
+},
+{
+  "codOrdine": "ORD-1236",
+  "codCliente": "445A66666",
+  "nomeCliente": "Gui Bagatta",
+  "dataOrdine": "2021-01-20T13:46:48.276Z",
+  "prodottiOrdinati": [
+    {
+      "codProdotto": "12S4433T",
+      "nomeProdotto": "ESEMPIONE DI PRODOTTO",
+      "qta": 232,
+      "prezzo": 109.99
+    }
+  ],
+  "ID": 3
+}
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
